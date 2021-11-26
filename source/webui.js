@@ -90,6 +90,14 @@ $(document).ready(function() {
 		sendCmd(gCode2Send, '');
 		$('#gcode').val('');
 	});
+	
+	$('changeWebcam').click(function() {
+		webcamURL = $('url').value();
+		if (webcamURL == '') { return; }
+		$("#myImage").attr("src", webcamURL).load(function(){
+    			alert('New image loaded!');
+		});
+	});
 
 	$("#wre").change(function() {
 		delaySendTemp($("#wre").val(), 'extruder');
